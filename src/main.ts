@@ -65,7 +65,7 @@ async function run(): Promise<void> {
       owner: context.repo.owner,
       repo: context.repo.repo
     })
-   
+
     core.info(`response: ${response}`)
 
     // Ensure that the request was successful.
