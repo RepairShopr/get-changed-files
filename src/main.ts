@@ -66,20 +66,10 @@ async function run(): Promise<void> {
       repo: context.repo.repo
     })
 
-    core.info(`response: ${response}`)
-
     // Ensure that the request was successful.
     if (response.status !== 200) {
       core.setFailed(
         `The GitHub API for comparing the base and head commits for this ${context.eventName} event returned ${response.status}, expected 200. ` +
-          "Please submit an issue on this action's GitHub repo."
-      )
-    }
-
-    // Ensure that the head commit is ahead of the base commit.
-    if (response.data.status !== 'ahead') {
-      core.setFailed(
-        `The head commit for this ${context.eventName} event is "${response.data.status}", not ahead of the base commit. ` +
           "Please submit an issue on this action's GitHub repo."
       )
     }
