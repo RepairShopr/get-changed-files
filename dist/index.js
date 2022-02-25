@@ -3566,7 +3566,7 @@ function run() {
                     "Please submit an issue on this action's GitHub repo.");
             }
             // Ensure that the head commit is ahead of the base commit.
-            if (response.data.status !== 'ahead') {
+            if (response.data.status !== 'ahead' && response.data.status !== 'diverged') {
                 core.setFailed(`The head commit for this ${github_1.context.eventName} event is not ahead of the base commit. ` +
                     "Please submit an issue on this action's GitHub repo.");
             }
